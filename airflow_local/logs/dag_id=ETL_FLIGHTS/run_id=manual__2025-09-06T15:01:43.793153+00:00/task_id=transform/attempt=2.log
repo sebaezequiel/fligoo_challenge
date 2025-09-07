@@ -1,3 +1,0 @@
-[2025-09-06T12:03:38.990-0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
-[2025-09-06T12:03:39.023-0300] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: ETL_FLIGHTS.transform manual__2025-09-06T15:01:43.793153+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
-[2025-09-06T12:03:39.024-0300] {local_task_job_runner.py:163} INFO - Task is not able to be run
