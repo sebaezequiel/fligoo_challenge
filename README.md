@@ -37,9 +37,8 @@ Orchestrate a pipeline to extract, transform, and load flight data from the Avia
 │  │  ├─ transform.py  
 │  │  └─ load.py  
 │  └─ requirements.txt   
-├─ db/  
-│  └─ init/  
-│     └─ init.sql
+├─ db/init/  
+│  └─ init.sql  
 ├─ docker-compose.yml   
 ├─ .env  
 └─ README.md  
@@ -80,7 +79,16 @@ pip install "apache-airflow==${AIRFLOW_VERSION}" \
 set -a; source .env; set +a  
 unset AIRFLOW_HOME AIRFLOW_CONFIG AIRFLOW__CORE__DAGS_FOLDER AIRFLOW__CORE__SQL_ALCHEMY_CONN AIRFLOW__LOGGING__BASE_LOG_FOLDER
 export AIRFLOW_HOME="$PWD/airflow_local"  
-rm -f "$AIRFLOW_HOME/airflow-webserver.pid"
+rm -f "$AIRFLOW_HOME/airflow.db" \
+      "$AIRFLOW_HOME/airflow.cfg" \
+      "$AIRFLOW_HOME/webserver_config.py" \
+      "$AIRFLOW_HOME/airflow-webserver.pid"
+rm -rf "$AIRFLOW_HOME/logs"
+export AIRFLOW__CORE__DAGS_FOLDER="$AIRFLOW_HOME/dags"
+export AIRFLOW__LOGGING__BASE_LOG_FOLDER="$AIRFLOW_HOME/logs"
+export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="sqlite:///$AIRFLOW_HOME/airflow.db"
+export AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT=300
+export AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT=300 
 ```
 
     
@@ -99,9 +107,12 @@ airflow users create --username admin --firstname Admin --lastname User --role A
 
     
 
-## 7) Start Postgres (Docker)
+## 7) Start Postgres (Docker) and create table
 ```bash
 docker compose up -d  
+docker compose cp db/init/init.sql postgres:/tmp/init.sql  
+docker compose exec postgres bash -lc 'until pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"; do sleep 1; done'
+docker compose exec postgres psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f /tmp/init.sql
 ```
 
     
