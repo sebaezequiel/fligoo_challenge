@@ -1,0 +1,62 @@
+# -------------------------
+# OS / Editor junk
+# -------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.code-workspace
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.cache/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# -------------------------
+# Virtualenvs
+# -------------------------
+.venv/
+.venv-*/
+venv/
+env/
+.venv-airflow/
+
+# -------------------------
+# Secrets / Env
+# -------------------------
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Airflow local state
+# (ignorá todo en airflow_local menos código de dags/jobs y requirements)
+# -------------------------
+airflow_local/*
+!airflow_local/dags/
+!airflow_local/jobs/
+!airflow_local/requirements.txt
+!airflow_local/dags/**
+!airflow_local/jobs/**
+
+# (por si acaso, explícitos)
+airflow_local/airflow.db
+airflow_local/airflow.cfg
+airflow_local/webserver_config.py
+airflow_local/logs/
+airflow_local/*.pid
+
+# -------------------------
+# Docker overrides locales (opcionales)
+# -------------------------
+docker-compose.override.yml

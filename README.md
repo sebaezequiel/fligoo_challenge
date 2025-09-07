@@ -78,7 +78,9 @@ pip install "apache-airflow==${AIRFLOW_VERSION}" \
 ## 4) Export variables and AIRFLOW_HOME
 ```bash
 set -a; source .env; set +a  
+unset AIRFLOW_HOME AIRFLOW_CONFIG AIRFLOW__CORE__DAGS_FOLDER AIRFLOW__CORE__SQL_ALCHEMY_CONN AIRFLOW__LOGGING__BASE_LOG_FOLDER
 export AIRFLOW_HOME="$PWD/airflow_local"  
+rm -f "$AIRFLOW_HOME/airflow-webserver.pid"
 ```
 
     
@@ -110,7 +112,7 @@ You’ll need two terminals (one for the webserver and one for the scheduler).
 
 ## Terminal 1 - Webserver
 ```bash
-cd /project/route  
+cd /project/directory  
 source .venv-airflow/bin/activate  
 set -a; source .env; set +a  
 export AIRFLOW_HOME="$PWD/airflow_local"  
@@ -121,7 +123,7 @@ airflow webserver -p 8080
 
 ## Terminal 2 - Scheduler
 ```bash
-cd /project/route  
+cd /project/directory  
 source .venv-airflow/bin/activate  
 set -a; source .env; set +a    
 export AIRFLOW_HOME="$PWD/airflow_local"  
