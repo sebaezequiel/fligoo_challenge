@@ -1,0 +1,18 @@
+[2025-09-06T12:18:57.598-0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-06T12:18:57.718-0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_FLIGHTS.extract manual__2025-09-06T15:18:46.517158+00:00 [queued]>
+[2025-09-06T12:18:57.733-0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_FLIGHTS.extract manual__2025-09-06T15:18:46.517158+00:00 [queued]>
+[2025-09-06T12:18:57.733-0300] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-06T12:18:57.970-0300] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract> on 2025-09-06 15:18:46.517158+00:00
+[2025-09-06T12:18:57.986-0300] {standard_task_runner.py:63} INFO - Started process 12152 to run task
+[2025-09-06T12:18:57.999-0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL_FLIGHTS', 'extract', 'manual__2025-09-06T15:18:46.517158+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/ETL_FLIGHTS.py', '--cfg-path', '/tmp/tmp9nro1h19']
+[2025-09-06T12:18:58.002-0300] {standard_task_runner.py:91} INFO - Job 38: Subtask extract
+[2025-09-06T12:18:58.355-0300] {task_command.py:426} INFO - Running <TaskInstance: ETL_FLIGHTS.extract manual__2025-09-06T15:18:46.517158+00:00 [running]> on host sebastian-Aspire-A515-54
+[2025-09-06T12:18:59.427-0300] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ETL_FLIGHTS' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2025-09-06T15:18:46.517158+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-06T15:18:46.517158+00:00'
+[2025-09-06T12:18:59.431-0300] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-06T12:19:11.581-0300] {logging_mixin.py:188} INFO - Extract: 100 filas
+[2025-09-06T12:19:11.583-0300] {python.py:237} INFO - Done. Returned value was: None
+[2025-09-06T12:19:11.583-0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-06T12:19:11.602-0300] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL_FLIGHTS, task_id=extract, run_id=manual__2025-09-06T15:18:46.517158+00:00, execution_date=20250906T151846, start_date=20250906T151857, end_date=20250906T151911
+[2025-09-06T12:19:11.972-0300] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-06T12:19:12.043-0300] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-06T12:19:12.362-0300] {local_task_job_runner.py:222} INFO - ::endgroup::

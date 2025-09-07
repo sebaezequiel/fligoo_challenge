@@ -1,0 +1,15 @@
+# Todo lo configurable del DAG acá
+default_args:
+  owner: airflow
+  depends_on_past: false
+  retries: 1
+  retry_delay_min: 1   # minutos
+
+dag_args:
+  dag_id: LOAD_FLIGHTS
+  description: Orquesta: extract → transform → load (upsert) a Postgres
+  start_date: "2025-01-01"   # ISO
+  schedule_interval: null    # o cron, p.ej. "0 * * * *"
+  catchup: false
+  max_active_runs: 1
+  tags: ["fligoo", "etl", "flights"]
