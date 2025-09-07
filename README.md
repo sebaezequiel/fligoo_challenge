@@ -1,6 +1,4 @@
-# fligoo_challenge
-
-Data Engineer challenge for Fligoo
+# Takeome DE - Fligoo
 
 Orchestrate a pipeline to extract, transform, and load flight data from the Aviationstack API into PostgreSQL, using Apache Airflow.
 
