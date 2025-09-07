@@ -94,7 +94,7 @@ airflow db init
 ```bash
 airflow users create \  
   --role Admin --username admin --password admin \  
-  --firstname Admin --lastname User --email admin@fligoo.com  
+  --firstname Admin --lastname User --email admin@example.com  
 ```
 
     
