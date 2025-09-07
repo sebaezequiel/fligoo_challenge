@@ -59,6 +59,7 @@ source .venv-airflow/bin/activate
 
 ## 2) Install script dependencies
 ```bash
+pip install --upgrade pip
 pip install -r airflow_local/requirements.txt
 ```
 
