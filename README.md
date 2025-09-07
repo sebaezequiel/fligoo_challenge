@@ -49,7 +49,7 @@ Orchestrate a pipeline to extract, transform, and load flight data from the Avia
 
 # Installation (first time):
 
-## 1) Create/Activate vitualenv
+## 1) Create/Activate virtualenv
 ```bash
 python3.10 -m venv .venv-airflow
 source .venv-airflow/bin/activate
