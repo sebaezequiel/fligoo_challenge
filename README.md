@@ -92,9 +92,7 @@ airflow db init
 
 ## 6) Create Airflow admin user (first time only)
 ```bash
-airflow users create \  
-  --role Admin --username admin --password admin \  
-  --firstname Admin --lastname User --email admin@example.com  
+airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin 
 ```
 
     
