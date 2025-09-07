@@ -48,6 +48,8 @@ airflow_local/*
 !airflow_local/requirements.txt
 !airflow_local/dags/**
 !airflow_local/jobs/**
+!airflow_local/config/
+!airflow_local/config/config.yaml
 
 # (por si acaso, explícitos)
 airflow_local/airflow.db

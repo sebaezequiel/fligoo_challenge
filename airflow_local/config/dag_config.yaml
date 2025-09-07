@@ -1,0 +1,14 @@
+default_args:
+  owner: airflow
+  depends_on_past: false
+  retries: 1
+  retry_delay_min: 1 
+
+dag_args:
+  dag_id: LOAD_FLIGHTS
+  description: Orchestrates a pipeline to extract, transform, and load flight data
+  start_date: "2025-01-01"  
+  schedule_interval: null  
+  catchup: false
+  max_active_runs: 1
+  tags: ["fligoo", "etl", "flights"]
