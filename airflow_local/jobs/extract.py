@@ -12,7 +12,7 @@ def _as_str(x):
 def extract(limit=100, status="active"):
     api_key = os.getenv("AVIATIONSTACK_KEY") or os.getenv("API_KEY")
     if not api_key:
-        raise ValueError("Falta AVIATIONSTACK_KEY (o API_KEY) en el entorno.")
+        raise ValueError(";issing API Key")
 
     params = {"access_key": api_key, "flight_status": status, "limit": limit}
     r = requests.get(API_URL, params=params, timeout=30)
@@ -38,8 +38,7 @@ def extract(limit=100, status="active"):
             "arrival_terminal": _as_str(arr.get("terminal")),
             "airline_name": _as_str(al.get("name")),
             "flight_number": _as_str(fl.get("number")),
-            # Siempre string para que sea JSON-serializable en XCom
             "ingested_at": now_iso,
         }
         rows.append(row)
-    return rows  # list[dict] JSON-serializable
+    return rows 

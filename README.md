@@ -21,7 +21,7 @@ Orchestrate a pipeline to extract, transform, and load flight data from the Avia
 - Free ports:
   - 5432 (Postgres)
   - 8080 (Airflow webserver)
-- API Key AVIATIONSTACK_KEY
+- API Key AVIATIONSTACK_KEY (configure your API Key in .env)
 
     
 

@@ -6,7 +6,6 @@ from .db import get_engine
 NATURAL_KEY = ("flight_date","flight_number","airline_name","departure_airport","arrival_airport")
 
 def _dedup_batch(rows: List[Dict]) -> List[Dict]:
-    # Defensa extra: si dentro del mismo batch hay duplicados de la clave natural
     uniq = {}
     for r in rows:
         key: Tuple = tuple(r.get(k) for k in NATURAL_KEY)
@@ -53,5 +52,4 @@ def upsert_rows(rows: List[Dict]) -> int:
 
     with engine.begin() as conn:
         res = conn.execute(stmt)
-        # rowcount en upsert puede variar; lo usamos como "procesadas"
         return res.rowcount or 0
